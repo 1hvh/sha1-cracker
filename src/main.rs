@@ -1,16 +1,16 @@
-use std:: {
+use sha1::Digest;
+use std::{
     env,
     error::Error,
     fs::File,
+    io::BufRead,
     io::{BufReader, BufWriter},
-    io::BufRead
 };
-use sha1::Digest;
 
 const SHA1_HEX_STRING_LENGTH: usize = 40;
 
-fn main() -> Result<(), Box<dyn Error>>{
-    let args: Vec<String>  = env::args().collect();
+fn main() -> Result<(), Box<dyn Error>> {
+    let args: Vec<String> = env::args().collect();
 
     if args.len() != 3 {
         println!("Usage:");
